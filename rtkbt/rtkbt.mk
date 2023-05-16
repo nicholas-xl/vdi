@@ -1,4 +1,4 @@
-# RELEASE NAME: 20190717_BT_ANDROID_9.0
+# RELEASE NAME: 20230221_BT_ANDROID_9.0
 # RTKBT_API_VERSION=2.1.1.0
 
 BOARD_HAVE_BLUETOOTH := true
@@ -30,7 +30,6 @@ endif
 PRODUCT_PACKAGES += \
     Bluetooth \
     libbt-vendor \
-    rtkcmd \
     audio.a2dp.default \
     bluetooth.default \
     android.hardware.bluetooth@1.0-impl \

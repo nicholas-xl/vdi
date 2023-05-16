@@ -329,6 +329,13 @@
 #define HCI_BLE_LTK_REQ_REPLY           (0x001A | HCI_GRP_BLE_CMDS)
 #define HCI_BLE_LTK_REQ_NEG_REPLY       (0x001B | HCI_GRP_BLE_CMDS)
 #define HCI_BLE_READ_SUPPORTED_STATES   (0x001C | HCI_GRP_BLE_CMDS)
+
+/* RTK mesh vendor cmd */
+#define HCI_VENDOR_LE_SCAN_PARAMETER    (0XFCA8)
+#define HCI_VENDOR_LE_SCAN_ENABLE       (0XFCA9)
+
+#define HCI_VENDOR_READ_ISO_HANDLE_RANGE  (0xFDAB)
+
                             /*0x001D, 0x001E and 0x001F are reserved*/
 #define HCI_BLE_RECEIVER_TEST           (0x001D | HCI_GRP_BLE_CMDS)
 #define HCI_BLE_TRANSMITTER_TEST        (0x001E | HCI_GRP_BLE_CMDS)
@@ -386,6 +393,8 @@
 #define HCI_BLE_READ_RF_COMPENS_POWER       (0x004C | HCI_GRP_BLE_CMDS)
 #define HCI_BLE_WRITE_RF_COMPENS_POWER      (0x004D | HCI_GRP_BLE_CMDS)
 #define HCI_BLE_SET_PRIVACY_MODE            (0x004E | HCI_GRP_BLE_CMDS)
+
+#define HCI_LE_SET_CIG_PARAMS (0x0062 | HCI_GRP_BLE_CMDS)
 
 /* LE Get Vendor Capabilities Command OCF */
 #define HCI_BLE_VENDOR_CAP_OCF    (0x0153 | HCI_GRP_VENDOR_SPECIFIC)
@@ -750,6 +759,10 @@
 #define HCI_BLE_DATA_LENGTH_CHANGE_EVT      0x07
 #define HCI_BLE_ENHANCED_CONN_COMPLETE_EVT  0x0a
 #define HCI_BLE_DIRECT_ADV_EVT              0x0b
+
+#define HCI_BLE_CIS_EST_EVT                 0x19
+#define HCI_BLE_CREATE_BIG_CPL_EVT          0x1b
+#define HCI_BLE_TERM_BIG_CPL_EVT            0x1c
 
 /* Definitions for LE Channel Map */
 #define HCI_BLE_CHNL_MAP_SIZE               5
@@ -1429,6 +1442,7 @@ typedef struct
 #define LMP_TESTCTL_HOPMOD_HOP_FRANCE   3
 #define LMP_TESTCTL_HOPMOD_HOP_SPAIN    4
 #define LMP_TESTCTL_HOPMOD_REDUCED_HOP  5
+#define HCI_ENABLE_FW_LOG           		(0x0027 | HCI_GRP_VENDOR_SPECIFIC)
 
 #define LMP_TESTCTL_POWCTL_FIXEDTX_OP   0
 #define LMP_TESTCTL_POWCTL_ADAPTIVE     1
@@ -2672,6 +2686,7 @@ typedef struct
 #define SCO_PREAMBLE_SIZE 3
     // 1 byte for event code, 1 byte for parameter length (Volume 2, Part E, 5.4.4)
 #define EVENT_PREAMBLE_SIZE 2
+#define ISO_PREAMBLE_SIZE 4
 
 #define HCI_PACKET_TYPE_TO_INDEX(type) ((type) - 1)
 

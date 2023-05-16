@@ -57,5 +57,23 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/Firmware/BT/rtl8761bt_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8761bt_fw \
 	$(LOCAL_PATH)/Firmware/BT/rtl8725a_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8725a_config \
 	$(LOCAL_PATH)/Firmware/BT/rtl8725a_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8725a_fw \
-
-
+	$(LOCAL_PATH)/Firmware/BT/rtl8733b_8723f_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8733b_8723f_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8733b_8723f_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8733b_8723f_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8733bs_8723fs_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8733bs_8723fs_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8733bs_8723fs_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8733bs_8723fs_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852as_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852as_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852as_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852as_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852au_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852au_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852au_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852au_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852bs_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852bs_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852bs_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852bs_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852bu_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852bu_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852bu_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852bu_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852cu_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852cu_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852cu_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852cu_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852cs_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852cs_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8852cs_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8852cs_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8822e_8822c_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822e_8822c_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8822e_8822c_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822e_8822c_fw \
+	$(LOCAL_PATH)/Firmware/BT/rtl8822es_8822cs_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822es_8822cs_config \
+	$(LOCAL_PATH)/Firmware/BT/rtl8822es_8822cs_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822es_8822cs_fw \

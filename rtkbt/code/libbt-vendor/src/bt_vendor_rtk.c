@@ -26,7 +26,7 @@
 
 #undef NDEBUG
 #define LOG_TAG "libbt_vendor"
-#define RTKBT_RELEASE_NAME "20201130_BT_ANDROID_9.0"
+#define RTKBT_RELEASE_NAME "20230221_BT_ANDROID_9.0"
 #include <utils/Log.h>
 #include "bt_vendor_rtk.h"
 #include "upio.h"
@@ -45,7 +45,8 @@ extern char rtk_btsnoop_path[];
 extern uint8_t coex_log_enable;
 extern void hw_config_start(char transtype);
 extern void hw_usb_config_start(char transtype,uint32_t val);
-
+extern void hci_close_firmware_log_file(int fd);
+extern int hci_firmware_log_fd;
 #if (HW_END_WITH_HCI_RESET == TRUE)
 void hw_epilog_process(void);
 #endif
@@ -56,6 +57,7 @@ void hw_epilog_process(void);
 bt_vendor_callbacks_t *bt_vendor_cbacks = NULL;
 uint8_t vnd_local_bd_addr[6]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 bool rtkbt_auto_restart = false;
+bool rtkbt_capture_fw_log = false;
 
 /******************************************************************************
 **  Local type definitions
@@ -233,6 +235,10 @@ static void load_rtkbt_stack_conf()
         else if(!strcmp(rtk_trim(line_ptr), "RtkBtAutoRestart")) {
             if(!strcmp(rtk_trim(split+1), "true"))
                 rtkbt_auto_restart = true;
+        }
+        else if(!strcmp(rtk_trim(line_ptr), "RtkBtCaptureFwLog")) {
+            if(!strcmp(rtk_trim(split+1), "true"))
+                rtkbt_capture_fw_log = true;
         }
     }
 
@@ -434,7 +440,8 @@ static int op(bt_vendor_opcode_t opcode, void *param)
                   retval = userial_vendor_usb_ioctl(GET_USB_INFO, &usb_info);
                   if(retval == -1) {
                     ALOGE("get usb info fail");
-                    bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_FAIL);
+                    if(bt_vendor_cbacks)
+                       bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_FAIL);
                     return retval;
                   }
                   else
@@ -579,6 +586,9 @@ static void cleanup( void )
         rtk_btsnoop_close();
     if(rtk_btsnoop_net_dump)
         rtk_btsnoop_net_close();
+	if(rtkbt_capture_fw_log){
+		hci_close_firmware_log_file(hci_firmware_log_fd);
+	}
     rtkbt_stack_conf_cleanup();
 }
 

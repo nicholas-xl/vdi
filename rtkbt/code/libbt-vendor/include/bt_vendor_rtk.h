@@ -54,6 +54,9 @@
 /******************************************************************************
 **  Constants & Macros
 ******************************************************************************/
+//for mesh
+//#define VENDOR_MESH_RTK
+
 #define RTKBT_TRANS_H4          0x20
 #define RTKBT_TRANS_H5          0x10
 #define RTKBT_TRANS_UART        0x01
@@ -83,6 +86,7 @@
 #define DWFW_CMPLT              _IOW('E', 179, int)
 
 #define GET_USB_INFO            _IOR('E', 180, int)
+#define SET_ISO_MIN_HANDLE      _IOR('E', 181, int)
 
 
 /* Device port name where Bluetooth controller attached */
